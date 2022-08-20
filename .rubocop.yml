@@ -1,0 +1,38 @@
+
+inherit_from: .rubocop_todo.yml
+
+inherit_mode:
+  # Merge the Exclude arrays together. This is helpful so that the Todo file's
+  # lists are merged with the configuration below.
+  merge:
+    - Exclude
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - config/**/*
+    - bin/*
+  NewCops: enable
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+Style/Documentation:
+  # Note that these paths are excluded as thier intent is typically obvious.
+  # Documentation like "Controller for X model." is not very helpful. If any of
+  # these do anything special then please document them!
+  Exclude:
+    - 'app/controllers/**/*.rb'
+    - 'app/helpers/*.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
