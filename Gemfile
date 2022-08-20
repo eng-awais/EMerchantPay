@@ -34,6 +34,8 @@ gem 'slim-rails'
 
 gem 'figaro'
 
+gem 'devise'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -78,11 +80,11 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
