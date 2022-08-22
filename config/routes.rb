@@ -7,8 +7,5 @@ Rails.application.routes.draw do
   resources :merchants, only: %i[index show edit update destroy] do
     resources :transactions , only: %i[index]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

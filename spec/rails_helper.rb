@@ -86,10 +86,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.before do
-    Sidekiq::Worker.clear_all
-  end
-
   Shoulda::Matchers.configure do |configuration|
     configuration.integrate do |with|
       with.test_framework :rspec
