@@ -1,0 +1,3 @@
+class ReverseTransactionPresenter < ApplicationPresenter
+
+end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Merchant, type: :model do
 
   describe '#associations' do
-    it { should belong_to(:user) }
+    it { should belong_to(:merchant_user) }
     it { should have_many(:transactions) }
     it { should have_many(:authorize_transactions) }
     it { should have_many(:charge_transactions) }

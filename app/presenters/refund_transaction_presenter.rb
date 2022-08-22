@@ -1,0 +1,3 @@
+class RefundTransactionPresenter < ApplicationPresenter
+
+end
