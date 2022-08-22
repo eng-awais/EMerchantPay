@@ -34,6 +34,8 @@ gem 'slim-rails'
 
 gem 'figaro'
 
+gem 'bootstrap', '~> 5.1.3'
+
 gem 'devise'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -71,6 +73,8 @@ group :development do
 
   # Bullet gem is used to help you increase your application's performance by reducing the number of queries it makes.
   gem 'bullet'
+
+  gem 'byebug'
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]

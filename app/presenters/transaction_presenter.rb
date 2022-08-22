@@ -1,0 +1,3 @@
+class TransactionPresenter < ApplicationPresenter
+
+end

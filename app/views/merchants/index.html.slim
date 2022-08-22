@@ -1,2 +1,27 @@
-h1 Merchants#index
-p Find me in app/views/merchants/index.html.slim
+h3 Merchants
+
+table border='2'
+  thead
+    tr
+      th.px-2 Name
+      th.px-2 Email
+  tbody
+    - @merchants.each do |m|
+      - present(m) do |merchant|
+        tr
+          td.px-2.pb-2 = merchant.name
+          td.px-2.pb-2 = merchant.email
+          td.px-2.pb-2
+            button.btn.btn-outline-dark.me-md-2
+              = link_to 'Show', merchant_path(merchant)
+          td.px-2.pb-2
+            button.btn.btn-outline-dark.me-md-2
+              = link_to 'Edit', edit_merchant_path(merchant)
+
+          td.px-2.pb-2
+            button.btn.btn-outline-dark.me-md-2
+             = link_to 'Delete', merchant, data: { 'turbo-method': :delete , 'turbo-confirm': 'Are you sure?' }
+
+          td.px-2.pb-2
+            button.btn.btn-outline-dark.me-md-2
+             = link_to 'Display all transactions', merchant_transactions_path(merchant)

@@ -1,2 +1,15 @@
-h1 Merchants#show
-p Find me in app/views/merchants/show.html.slim
+h3 Merchant Details
+- present(@merchant) do |merchant|
+  div
+    b Name
+    p= merchant.name
+  div
+    b Description
+    p= merchant.description
+  div
+    b Total Transaction Sum
+    p= merchant.total_transaction_sum
+
+  div
+    p= link_to 'Display all transactions', merchant_transactions_path(merchant)
+    p= link_to 'Back', { controller: 'merchants', action: 'index' }
