@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MergeFirstAndLastNameFieldsToName < ActiveRecord::Migration[7.0]
   def up
     remove_column :merchants, :first_name, :string, default: ''
