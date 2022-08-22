@@ -1,2 +1,25 @@
-h1 Transactions#index
-p Find me in app/views/transactions/index.html.slim
+h3= index_page_title
+
+table border='2'
+  thead
+    tr
+      th.px-2 Amount
+      th.px-2 Status
+      th.px-2 Type
+      th.px-2 Customer Email
+      th.px-2 Customer Phone
+      th.px-2 Date
+
+  tbody
+  - @transactions.all.each do |t|
+    - present(t) do |transaction|
+      tr
+        td.px-2 = transaction.amount
+        td.px-2 = transaction.status
+        td.px-2 = transaction.type
+        td.px-2 = transaction.customer_email
+        td.px-2 = transaction.customer_phone
+        td.px-2 = transaction.created_at
+
+div.mb-3
+  = link_to 'Back', :back, class: 'px-2'

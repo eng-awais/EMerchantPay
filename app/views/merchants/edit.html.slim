@@ -1,2 +1,16 @@
-h1 Merchants#edit
-p Find me in app/views/merchants/edit.html.slim
+h1 Edit Merchant
+- present(@merchant) do |merchant|
+  = display_error_flash(flash[:error])
+  = form_with(model: merchant) do |f|
+
+    div.px-2.mb-3
+      label.form-label Merchant Name
+      = f.text_field :name, class: 'form-control'
+
+    div.px-2.mb-3
+      label.form-label Description
+      = f.text_field :description, class: 'form-control'
+
+    div.mb-3
+      = link_to 'Back', { controller: 'merchants', action: 'index' }, class: 'px-2'
+      = f.submit 'Update Merchant'

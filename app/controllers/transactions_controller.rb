@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
 class TransactionsController < ApplicationController
-  def index; end
+  before_action :set_merchant
 
-  def show; end
+  def index
+    @transactions = @merchant.transactions
+  end
+
+  private
+
+  def set_merchant
+    @merchant = Merchant.find_by(id: params[:merchant_id])
+  end
+
 end
