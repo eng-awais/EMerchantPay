@@ -41,6 +41,11 @@ gem 'devise'
 # Use Pundit for role based authorization
 gem "pundit"
 
+gem 'sidekiq'
+
+gem 'sidekiq-cron'
+
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

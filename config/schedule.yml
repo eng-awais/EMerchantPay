@@ -1,0 +1,3 @@
+remove_transactions_worker:
+  cron: '1 * * * *'
+  class: 'RemoveTransactionsWorker'
