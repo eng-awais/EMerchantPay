@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 module MerchantsHelper
-  def display_error_flash(flash_error)
-    return nil unless flash_error
+  def display_flash(flash_error)
+    return unless flash_error
 
-    "<div class='toast align-items-center' role='alert' aria-live='assertive' aria-atomic='true'>
-      <div class='d-flex'>
-        <div class='toast-body'>
-          #{flash_error}
-        </div>
-        <button class='btn-close me-2 m-auto' type='button' data-bs-dismiss='toast' aria-label='Close'/>
-      </div>
+    "<div class='alert alert-danger col-sm-4' role='alert'>
+      #{flash_error}
     </div>".html_safe
+  end
+
+  def display_button?
+    'hidden' unless current_user.admin_user?
   end
 end

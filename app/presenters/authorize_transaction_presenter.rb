@@ -1,3 +1,2 @@
 class AuthorizeTransactionPresenter < ApplicationPresenter
-
 end

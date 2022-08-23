@@ -10,4 +10,14 @@ html
     = javascript_importmap_tags
   body
     .container
+      p.navbar-text.float-right
+        - if user_signed_in?
+          |  Logged in as
+          strong
+            =  current_user.email
+          |  |
+          = link_to 'Logout', destroy_user_session_path, class: 'navbar-link', data: { 'turbo-method': :delete ,
+                                                                                     'turbo-confirm': 'Are you sure?' }
+        - else
+          = link_to 'Login', new_user_session_path, class: 'navbar-link'
       = yield

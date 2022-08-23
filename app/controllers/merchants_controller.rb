@@ -4,12 +4,16 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[edit show update destroy]
 
   def index
-    @merchants = Merchant.all
+    @merchants = policy_scope(Merchant)
   end
 
-  def show; end
+  def show
+    authorize @merchant
+  end
 
-  def edit; end
+  def edit
+    authorize @merchant
+  end
 
   def update
     if @merchant.update(merchant_params)
@@ -20,6 +24,7 @@ class MerchantsController < ApplicationController
   end
 
   def destroy
+    authorize @merchant
     if @merchant.destroy
       redirect_to merchants_path, flash: { notice: 'Successfully deleted' }
     else

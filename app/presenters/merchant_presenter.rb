@@ -1,7 +1,4 @@
+# frozen_string_literal: true
+
 class MerchantPresenter < ApplicationPresenter
-
-  def email
-    @model.user.email
-  end
-
 end

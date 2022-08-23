@@ -1,22 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Merchant, type: :model do
-
   describe '#associations' do
-    it { should belong_to(:merchant_user) }
-    it { should have_many(:transactions) }
-    it { should have_many(:authorize_transactions) }
-    it { should have_many(:charge_transactions) }
-    it { should have_many(:refund_transactions) }
-    it { should have_many(:reverse_transactions) }
+    it { is_expected.to belong_to(:merchant_user) }
+    it { is_expected.to have_many(:transactions) }
+    it { is_expected.to have_many(:authorize_transactions) }
+    it { is_expected.to have_many(:charge_transactions) }
+    it { is_expected.to have_many(:refund_transactions) }
+    it { is_expected.to have_many(:reverse_transactions) }
   end
 
-
   describe '#validations' do
-    it { should validate_presence_of(:status) }
+    it { is_expected.to validate_presence_of(:status) }
   end
 
   describe '#enums' do
-    it { should define_enum_for(:status).with_values([:active, :inactive]) }
+    it { is_expected.to define_enum_for(:status).with_values(%i[active inactive]) }
   end
 end

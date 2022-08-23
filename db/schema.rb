@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_163518) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_001219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -23,6 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_163518) do
     t.datetime "updated_at", null: false
     t.string "name", default: ""
     t.uuid "merchant_user_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.index ["email"], name: "index_merchants_on_email", unique: true
     t.index ["merchant_user_id"], name: "index_merchants_on_merchant_user_id"
   end
 
@@ -46,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_163518) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type", null: false
+    t.string "type", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

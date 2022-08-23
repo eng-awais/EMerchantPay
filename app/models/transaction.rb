@@ -5,7 +5,6 @@ class Transaction < ApplicationRecord
 
   belongs_to :merchant
 
-  validates :amount, presence: true , numericality: true, comparison: { greater_than: 0 }
+  validates :amount, presence: true, numericality: true, comparison: { greater_than: 0 }
   validates :type, :status, presence: true
-
 end

@@ -11,7 +11,7 @@ table border='2'
       th.px-2 Date
 
   tbody
-  - @transactions.all.each do |t|
+  - @transactions&.each do |t|
     - present(t) do |transaction|
       tr
         td.px-2 = transaction.amount
