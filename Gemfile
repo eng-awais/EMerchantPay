@@ -45,11 +45,8 @@ gem 'sidekiq'
 
 gem 'sidekiq-cron'
 
-<<<<<<< HEAD
-=======
 gem 'active_model_serializers'
 
->>>>>>> 28bc506 (Implement payment transactions API)
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -73,6 +70,7 @@ group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'byebug'
 end
 
 group :development do
@@ -86,7 +84,7 @@ group :development do
   # Bullet gem is used to help you increase your application's performance by reducing the number of queries it makes.
   gem 'bullet'
 
-  gem 'byebug'
+
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
@@ -103,4 +101,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
