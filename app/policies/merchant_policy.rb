@@ -1,10 +1,20 @@
+# frozen_string_literal: true
+
 class MerchantPolicy < ApplicationPolicy
-  def index?
-    user.admin?
+  class Scope < Scope
+    def resolve
+      if user.admin_user?
+        scope.all
+      elsif user.merchant_user?
+        scope.where(merchant_user_id: user.id)
+      else
+        false
+      end
+    end
   end
 
   def show?
-    user.admin? || (user.merchant? && record.user == user)
+    user.admin_user? || (user.merchant_user? && record.merchant_user == user)
   end
 
   def edit?
@@ -12,10 +22,10 @@ class MerchantPolicy < ApplicationPolicy
   end
 
   def update?
-    user.merchant? && record.user == user
+    user.admin_user?
   end
 
   def destroy?
-    user.admin?
+    update?
   end
 end

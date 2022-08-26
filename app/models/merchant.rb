@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Merchant < ApplicationRecord
-
   enum :status, { active: 0, inactive: 1 }
 
   belongs_to :merchant_user
@@ -14,8 +13,7 @@ class Merchant < ApplicationRecord
 
   validates :status, presence: true
 
-
   def delete
-    self.destroy
+    destroy
   end
 end

@@ -2,6 +2,6 @@
 
 module TransactionsHelper
   def index_page_title
-    # "Merchant #{current_user.email} Transactions"
+    "Merchant #{current_user.email} Transactions"
   end
 end

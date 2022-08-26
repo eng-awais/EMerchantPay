@@ -1,3 +1,2 @@
 class ChargeTransactionPresenter < ApplicationPresenter
-
 end
