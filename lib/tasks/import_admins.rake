@@ -12,6 +12,6 @@ namespace :task do
   end
 
   def parse_row(row)
-    { email: row.dig('email'), role: row.dig('role'), password: row.dig('password') }
+    { email: row['email'], role: row['role'], password: row['password'] }
   end
 end

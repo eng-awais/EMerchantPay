@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Api
   module V1
     module Bulk
@@ -18,7 +19,8 @@ module Api
         private
 
         def transaction_params
-          params.permit(transactions: [:amount, :status, :type, :customer_email, :customer_phone, :merchant_id]).require(:transactions)
+          params.permit(transactions: %i[amount status type customer_email customer_phone
+                                         merchant_id]).require(:transactions)
         end
       end
     end
