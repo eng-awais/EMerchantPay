@@ -16,6 +16,7 @@ class MerchantsController < ApplicationController
   end
 
   def update
+    authorize @merchant
     if @merchant.update(merchant_params)
       redirect_to merchant_path(@merchant), flash: { notice: 'Successfully updated' }
     else
