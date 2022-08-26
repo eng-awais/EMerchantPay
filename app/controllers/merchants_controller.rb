@@ -19,17 +19,13 @@ class MerchantsController < ApplicationController
     if @merchant.update(merchant_params)
       redirect_to merchant_path(@merchant), flash: { notice: 'Successfully updated' }
     else
-      redirect_to edit_merchant_path(@merchant), flash: { error: @merchant.errors.full_messages.first }
+      render :edit
     end
   end
 
   def destroy
-    authorize @merchant
-    if @merchant.destroy
-      redirect_to merchants_path, flash: { notice: 'Successfully deleted' }
-    else
-      redirect_to merchants_path, flash: { error: @merchant.errors.full_messages.first }
-    end
+    @merchant.destroy
+    redirect_to merchants_path, flash: { notice: 'Successfully deleted' }
   end
 
   private
