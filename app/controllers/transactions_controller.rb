@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   before_action :set_merchant
 
   def index
-    @transaction = TransactionPolicy::Scope.new(current_user, Transaction, @merchant).resolve
+    @transactions = TransactionPolicy::Scope.new(current_user, Transaction, @merchant).resolve
   end
 
   private
