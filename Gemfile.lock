@@ -154,6 +154,7 @@ GEM
       activesupport (>= 5.0.0)
     json (2.6.2)
     jsonapi-renderer (0.2.2)
+    jwt (2.5.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -163,7 +164,6 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.5.4)
     net-imap (0.2.3)
@@ -181,9 +181,6 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8)
-      mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -346,7 +343,6 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
@@ -365,6 +361,7 @@ DEPENDENCIES
   figaro
   importmap-rails
   jbuilder
+  jwt
   pg (~> 1.1)
   puma (~> 5.0)
   pundit

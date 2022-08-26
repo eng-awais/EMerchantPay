@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post 'auth_user', to: 'authentication#authenticate_user'
       resources :transactions, only: %i[create]
       namespace :bulk do
         resources :transactions, only: %i[create]

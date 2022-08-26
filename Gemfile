@@ -45,11 +45,10 @@ gem 'sidekiq'
 
 gem 'sidekiq-cron'
 
-<<<<<<< HEAD
-=======
 gem 'active_model_serializers'
 
->>>>>>> 28bc506 (Implement payment transactions API)
+gem 'jwt'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

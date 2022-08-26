@@ -7,7 +7,6 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-require 'spec_helper'
 require 'support/factory_bot'
 require 'database_cleaner'
 require 'shoulda/matchers'
