@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+
+  mount Sidekiq::Web => '/jobs'
+  Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
+    [user, password] == [Rails.env, (ENV['sidekiq_web_pass'] || 'hello#admin')]
+  end
 
   resources :merchants, only: %i[index show edit update destroy] do
     resources :transactions, only: %i[index]
