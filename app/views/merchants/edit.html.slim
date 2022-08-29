@@ -1,15 +1,22 @@
 h1 Edit Merchant
 - present(@merchant) do |merchant|
-  = display_error_flash(flash[:error])
+  = flash[:error]
   = form_with(model: merchant) do |f|
 
     div.px-2.mb-3
-      label.form-label Merchant Name
-      = f.text_field :name, class: 'form-control'
+      label.form-label Name
+      .col-sm-3
+        = f.text_field :name, class: 'col-sm-3 form-control'
 
     div.px-2.mb-3
       label.form-label Description
-      = f.text_field :description, class: 'form-control'
+      .col-sm-3
+        = f.text_area :description, class: 'form-control'
+
+    div.px-2.mb-3
+      label.form-label Status
+      .col-sm-3
+        = f.select :status, ['active', 'inactive'], class: 'dropdown-menu col-sm-3'
 
     div.mb-3
       = link_to 'Back', { controller: 'merchants', action: 'index' }, class: 'px-2'

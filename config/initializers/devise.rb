@@ -6,6 +6,20 @@
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
 #
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -19,6 +33,8 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+
+  config.parent_controller = 'TurboDeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -183,7 +199,7 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  config.email_regexp = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -265,6 +281,7 @@ Devise.setup do |config|
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
 
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
@@ -281,7 +298,9 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.

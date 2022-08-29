@@ -12,6 +12,7 @@ class Merchant < ApplicationRecord
   has_many :reverse_transactions
 
   validates :status, presence: true
+  validates :email, presence: true, email: true
 
   def delete
     destroy

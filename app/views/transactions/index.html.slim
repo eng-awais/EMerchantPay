@@ -1,4 +1,4 @@
-h3= index_page_title
+h3= TransactionPresenter.index_page_title(@merchant)
 
 table border='2'
   thead
@@ -11,15 +11,15 @@ table border='2'
       th.px-2 Date
 
   tbody
-  - @transactions&.each do |t|
-    - present(t) do |transaction|
-      tr
-        td.px-2 = transaction.amount
-        td.px-2 = transaction.status
-        td.px-2 = transaction.type
-        td.px-2 = transaction.customer_email
-        td.px-2 = transaction.customer_phone
-        td.px-2 = transaction.created_at
+    - @transactions&.each do |t|
+      - present(t) do |transaction|
+        tr
+          td.px-2 = transaction.amount
+          td.px-2 = transaction.status
+          td.px-2 = transaction.type
+          td.px-2 = transaction.customer_email
+          td.px-2 = transaction.customer_phone
+          td.px-2 = transaction.created_at
 
 div.mb-3
   = link_to 'Back', :back, class: 'px-2'

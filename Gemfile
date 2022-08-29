@@ -39,7 +39,7 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 
 # Use Pundit for role based authorization
-gem "pundit"
+gem 'pundit'
 
 gem 'sidekiq'
 
@@ -48,6 +48,8 @@ gem 'sidekiq-cron'
 gem 'active_model_serializers'
 
 gem 'jwt'
+
+gem 'interactor', '~> 3.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
