@@ -12,6 +12,6 @@ namespace :task do
   end
 
   def parse_row(row)
-    { email: row['email'], role: row['role'], password: row['password'] }
+    { email: row['email'], type: row['type'], password: row['password'] }
   end
 end
