@@ -14,7 +14,7 @@ class TransactionPolicy < ApplicationPolicy
       elsif user.merchant_user? && user.id == record.merchant_user_id
         scope.where(merchant: record)
       else
-        false
+        raise Pundit::NotAuthorizedError, with: :user_not_authorized
       end
     end
 
